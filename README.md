@@ -1,5 +1,3 @@
-# vba_copy_fileset_loop
-
 Sub LoopAllExcelFilesInFolder()
 'Loop through all Excel files in a user specified folder and perform a set task on them
 
@@ -34,13 +32,13 @@ NextCode:
 
 'Target Path with Ending Extention
   myfile = Dir(myPath & myExtension)
+  Set y = Workbooks.Open("C:\Users\Admin\Desktop\Book3.xlsx")
+  DoEvents
 
 'Loop through each Excel file in folder
   Do While myfile <> ""
     'Set variable equal to opened workbook
       Set wb = Workbooks.Open(Filename:=myPath & myfile)
-      Set y = Workbooks.Open("C:\Users\Admin\Desktop\Book3.xlsx")
-      
       
     'Ensure Workbook has opened before moving on to next line of code
       DoEvents
@@ -51,7 +49,6 @@ NextCode:
       
       'Save and Close Workbook
       wb.Close savechanges:=True
-      y.Close savechanges:=True
       
       'Ensure Workbook has closed before moving on to next line of code
       DoEvents
